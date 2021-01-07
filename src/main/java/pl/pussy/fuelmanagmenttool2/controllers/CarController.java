@@ -34,4 +34,20 @@ public class CarController {
 
         return ResponseEntity.created(location).build();
     }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<?> updateCar(@PathVariable Long id, @RequestBody Car car) {
+        carService.createCar(car);
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Car> getCar(@PathVariable Long id) {
+        Car car = carService.getCarById(id);
+        return ResponseEntity.ok(car);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteCar(@PathVariable Long id) {
+        carService.deleteCar(id);
+    }
 }

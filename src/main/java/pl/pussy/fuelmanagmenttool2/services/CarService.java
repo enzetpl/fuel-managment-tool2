@@ -22,4 +22,13 @@ public class CarService {
     public Car createCar(Car car) {
         return carRepository.save(car);
     }
+
+    public Car getCarById(Long id) {
+        return carRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("car with id: " + id + " not found" ));
+    }
+
+    public void deleteCar(Long id) {
+        carRepository.deleteById(id);
+    }
 }
