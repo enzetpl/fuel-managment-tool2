@@ -1,5 +1,6 @@
 package pl.pussy.fuelmanagmenttool2.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,4 +20,7 @@ public class Car {
     private String plate;
     @Enumerated(EnumType.STRING)
     private FuelType fuelType;
+    @ManyToOne
+    @JsonIgnore
+    private User user;
 }

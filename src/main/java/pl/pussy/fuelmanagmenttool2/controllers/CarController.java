@@ -28,6 +28,7 @@ public class CarController {
 
     @PostMapping
     public ResponseEntity<?> createCar(@RequestBody Car car) {
+        System.out.println(car);
         Car savedCar = carService.createCar(car);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(savedCar.getId()).toUri();
