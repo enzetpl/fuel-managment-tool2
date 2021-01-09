@@ -10,7 +10,6 @@ public class AuthController {
     @GetMapping
 
     public AuthenticationBean authenticate() {
-        System.out.println("AUTH CONTROLLERRRRR");
         return new AuthenticationBean("You are authenticated");
     }
 }

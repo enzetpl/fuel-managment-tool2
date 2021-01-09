@@ -18,7 +18,14 @@ public class UserService {
     }
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username)
-                .orElseThrow(() -> new IllegalArgumentException());
+                .orElseThrow(IllegalArgumentException::new);
     }
 
+    public boolean existsByUsername(String username) {
+        return userRepository.existsByUsername(username);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
 }

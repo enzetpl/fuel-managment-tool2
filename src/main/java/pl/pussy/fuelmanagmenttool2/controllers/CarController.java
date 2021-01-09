@@ -6,6 +6,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pl.pussy.fuelmanagmenttool2.models.Car;
 import pl.pussy.fuelmanagmenttool2.services.CarService;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class CarController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createCar(@RequestBody Car car) {
+    public ResponseEntity<?> createCar(@Valid @RequestBody Car car) {
         System.out.println(car);
         Car savedCar = carService.createCar(car);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
