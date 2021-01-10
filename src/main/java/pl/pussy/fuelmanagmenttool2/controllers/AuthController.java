@@ -1,7 +1,8 @@
 package pl.pussy.fuelmanagmenttool2.controllers;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.pussy.fuelmanagmenttool2.security.AuthenticationBean;
+import pl.pussy.fuelmanagmenttool2.exceptions.MessageResponse;
 
 @RestController
 @CrossOrigin(origins = {"http://localhost:3000"})
@@ -9,7 +10,7 @@ import pl.pussy.fuelmanagmenttool2.security.AuthenticationBean;
 public class AuthController {
     @GetMapping
 
-    public AuthenticationBean authenticate() {
-        return new AuthenticationBean("You are authenticated");
+    public ResponseEntity<?> authenticate() {
+        return ResponseEntity.ok(new MessageResponse("You are authenticated"));
     }
 }

@@ -2,12 +2,10 @@ package pl.pussy.fuelmanagmenttool2.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.validator.constraints.Range;
-import org.springframework.lang.Nullable;
+
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import java.util.OptionalInt;
 
 @Entity
 @Table(name = "cars")
@@ -22,12 +20,12 @@ public class Car {
     private String brand;
     @NotBlank(message = "model must not be null")
     private String model;
-    @Range(min = 2000, max = 2022)
-    @Nullable
+    @Min(value = 1900)
+    @Max(value = 2100)
     private Integer productionYear;
+    @Size(min = 3, max = 9)
     private String plate;
     @Enumerated(EnumType.STRING)
-    //@NotBlank
     private FuelType fuelType;
     @ManyToOne
     @JsonIgnore
