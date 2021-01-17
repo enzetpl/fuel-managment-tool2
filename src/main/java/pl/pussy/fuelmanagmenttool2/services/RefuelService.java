@@ -7,6 +7,8 @@ import pl.pussy.fuelmanagmenttool2.repositories.RefuelRepository;
 
 import javax.transaction.Transactional;
 import java.sql.Ref;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -38,5 +40,8 @@ public class RefuelService {
     public Refuel getRefuelById(Long refuelId) {
         return refuelRepository.findById(refuelId)
                 .orElseThrow(() -> new IllegalArgumentException("car with id: " + refuelId + " not found" ));
+    }
+    public List<Refuel> getAllByCarIdAndRefuelDateBetween(Long carId, LocalDateTime startDate, LocalDateTime endDate) {
+        return refuelRepository.findAllByCarIdAndRefuelDateBetween(carId, startDate, endDate);
     }
 }

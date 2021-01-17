@@ -29,6 +29,7 @@ public class RefuelController {
     }
     @PostMapping("/cars/{carId}/refuels")
     public ResponseEntity<?> createCar(@PathVariable Long carId, @Valid @RequestBody Refuel refuel) {
+        System.out.println(refuel);
         Refuel savedRefuel = refuelService.createRefuel(refuel, carId);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}").buildAndExpand(savedRefuel.getId()).toUri();
