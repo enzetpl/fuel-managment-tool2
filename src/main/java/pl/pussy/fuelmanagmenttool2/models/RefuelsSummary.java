@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import java.time.LocalDate;
 
 @Data
-public class CarStats {
+public class RefuelsSummary {
     private double totalPrice;
     private double totalVolume;
     private int totalMileage;

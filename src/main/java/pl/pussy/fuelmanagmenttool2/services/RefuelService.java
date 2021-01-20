@@ -41,7 +41,17 @@ public class RefuelService {
         return refuelRepository.findById(refuelId)
                 .orElseThrow(() -> new IllegalArgumentException("car with id: " + refuelId + " not found" ));
     }
-    public List<Refuel> getAllByCarIdAndRefuelDateBetween(Long carId, LocalDateTime startDate, LocalDateTime endDate) {
-        return refuelRepository.findAllByCarIdAndRefuelDateBetween(carId, startDate, endDate);
+    public List<Refuel> getAllByCarIdAndRefuelDateBetween(Long carId,
+                                                          LocalDate startDate,
+                                                          LocalDate endDate) {
+        return refuelRepository
+                .findAllByCarIdAndRefuelDateBetween(carId, startDate.atStartOfDay(), endDate.atStartOfDay());
     }
+    public List<Refuel> getAllByCarUserUsernameAndRefuelDateBetween(String username,
+                                                                    LocalDate startDate,
+                                                                    LocalDate endDate) {
+        return refuelRepository
+                .findAllByCarUserUsernameAndRefuelDateBetween(username, startDate.atStartOfDay(), endDate.atStartOfDay());
+    }
+
 }

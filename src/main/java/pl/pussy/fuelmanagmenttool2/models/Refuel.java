@@ -25,6 +25,7 @@ public class Refuel {
     private float priceForLiter;
     //@NotBlank
     private LocalDateTime refuelDate;
+    private int carMileage;
     @ManyToOne
     @JsonIgnore
     private Car car;
