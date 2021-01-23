@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cars")
@@ -30,4 +31,7 @@ public class Car {
     @ManyToOne
     @JsonIgnore
     private User user;
+    @JoinColumn(name = "car_id")
+    @OneToMany(cascade = CascadeType.ALL)
+    List<Refuel> refuels;
 }

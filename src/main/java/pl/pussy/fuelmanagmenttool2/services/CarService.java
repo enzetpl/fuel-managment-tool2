@@ -6,7 +6,7 @@ import pl.pussy.fuelmanagmenttool2.models.User;
 import pl.pussy.fuelmanagmenttool2.repositories.CarRepository;
 import pl.pussy.fuelmanagmenttool2.security.SecurityUtils;
 
-import java.time.LocalDate;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -36,6 +36,7 @@ public class CarService {
                 .orElseThrow(() -> new IllegalArgumentException("car with id: " + id + " not found" ));
     }
 
+    @Transactional
     public void deleteCar(Long id) {
         carRepository.deleteById(id);
     }

@@ -13,4 +13,5 @@ public interface RefuelRepository extends JpaRepository<Refuel, Long> {
     List<Refuel> findAllByCarId(Long carId);
     List<Refuel> findAllByCarIdAndRefuelDateBetween(Long car_id, LocalDateTime startDate, LocalDateTime endDate);
     List<Refuel> findAllByCarUserUsernameAndRefuelDateBetween(String username, LocalDateTime startDate, LocalDateTime endDate);
+    void deleteRefuelsByCarId(Long carId);
 }

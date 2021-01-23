@@ -37,7 +37,8 @@ public class CarController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<?> updateCar(@PathVariable Long id, @RequestBody Car car) {
+    public ResponseEntity<?> updateCar(@PathVariable Long id,@Valid @RequestBody Car car) {
+        car.setId(id);
         carService.createCar(car);
         return ResponseEntity.ok().build();
     }

@@ -26,3 +26,5 @@ mvnw.cmd
 .mvn/wrapper/maven-wrapper.properties
 .mvn/wrapper/MavenWrapperDownloader.java
 src/main/resources/application.properties
+tmp/myDb.trace.db
+tmp/myDb.mv.db

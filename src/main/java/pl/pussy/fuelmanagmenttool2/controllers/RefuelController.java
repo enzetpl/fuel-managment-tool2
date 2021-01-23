@@ -42,7 +42,8 @@ public class RefuelController {
     }
 
     @PatchMapping("/cars/{carId}/refuels/{refuelId}")
-    public ResponseEntity<?> updateCar(@PathVariable Long carId, @PathVariable Long refuelId, @RequestBody Refuel refuel) {
+    public ResponseEntity<?> updateCar(@PathVariable Long carId, @PathVariable Long refuelId,@Valid @RequestBody Refuel refuel) {
+        refuel.setId(refuelId);
         refuelService.createRefuel(refuel, carId);
         return ResponseEntity.ok().build();
     }

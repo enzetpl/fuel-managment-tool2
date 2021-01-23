@@ -11,6 +11,8 @@ public class RefuelsSummary {
     private double totalVolume;
     private int totalMileage;
     private int totalRefuels;
-
+    private double avgPricePerLiter;
+    private double maxPricePerLiter;
+    private double minPricePerLiter;
 
 }

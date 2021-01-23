@@ -54,4 +54,7 @@ public class RefuelService {
                 .findAllByCarUserUsernameAndRefuelDateBetween(username, startDate.atStartOfDay(), endDate.atStartOfDay());
     }
 
+    public void deleteRefuelsByCarId(Long carId) {
+        refuelRepository.deleteRefuelsByCarId(carId);
+    }
 }

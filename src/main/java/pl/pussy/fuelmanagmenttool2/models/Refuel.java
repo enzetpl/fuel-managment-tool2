@@ -17,13 +17,10 @@ public class Refuel {
     private Long id;
     @Min(value = 1)
     @Max(value = 1000)
-    //@NotBlank
     private float volume;
     @DecimalMin(value = "0.1")
     @DecimalMax(value = "20")
-    //@NotBlank
     private float priceForLiter;
-    //@NotBlank
     private LocalDateTime refuelDate;
     private int carMileage;
     @ManyToOne
