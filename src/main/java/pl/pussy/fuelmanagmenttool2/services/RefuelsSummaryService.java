@@ -3,6 +3,7 @@ package pl.pussy.fuelmanagmenttool2.services;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import pl.pussy.fuelmanagmenttool2.exceptions.NoResourceException;
 import pl.pussy.fuelmanagmenttool2.models.RefuelsSummary;
 import pl.pussy.fuelmanagmenttool2.models.Refuel;
 import pl.pussy.fuelmanagmenttool2.security.SecurityUtils;
@@ -34,7 +35,7 @@ public class RefuelsSummaryService {
     private void setValuesForCar(Long carId, RefuelsSummary stats, LocalDate startDate, LocalDate endDate) {
         List<Refuel> refuels =  refuelService.getAllByCarIdAndRefuelDateBetween(carId, startDate, endDate);
         if(refuels.isEmpty())
-            throw new IllegalStateException("TODO");
+            throw new NoResourceException("not any data for this date");
         setValues(stats, refuels);
 
     }
