@@ -35,7 +35,7 @@ public class RefuelsSummaryService {
     private void setValuesForCar(Long carId, RefuelsSummary stats, LocalDate startDate, LocalDate endDate) {
         List<Refuel> refuels =  refuelService.getAllByCarIdAndRefuelDateBetween(carId, startDate, endDate);
         if(refuels.isEmpty())
-            throw new NoResourceException("not any data for this date");
+            throw new NoResourceException("No refuels within the given range");
         setValues(stats, refuels);
 
     }
@@ -49,6 +49,8 @@ public class RefuelsSummaryService {
     private void setValuesForUser(RefuelsSummary stats, LocalDate startDate, LocalDate endDate) {
         String username = SecurityUtils.getCurrentUserUsername();
         List<Refuel> refuels =  refuelService.getAllByCarUserUsernameAndRefuelDateBetween(username, startDate, endDate);
+        if(refuels.isEmpty())
+            throw new NoResourceException("No refuels within the given range");
         setValues(stats, refuels);
     }
 

@@ -28,3 +28,4 @@ mvnw.cmd
 src/main/resources/application.properties
 tmp/myDb.trace.db
 tmp/myDb.mv.db
+/pom.xml

@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import pl.pussy.fuelmanagmenttool2.exceptions.MessageResponse;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000"})
 @RequestMapping("/api/auth")
+@CrossOrigin("*")
 public class AuthController {
     @GetMapping
 

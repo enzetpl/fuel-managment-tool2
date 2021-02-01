@@ -9,9 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api")
-
 public class RefuelsSummaryController {
 
     private final RefuelsSummaryService refuelsSummaryService;
@@ -30,9 +28,9 @@ public class RefuelsSummaryController {
     }
 
     @GetMapping("/stats")
-    public ResponseEntity<?> getUserStats(@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    public ResponseEntity<?> getUserStats(@DateTimeFormat(pattern = "yyyy-MM-dd")
                                               @RequestParam LocalDate startDate,
-                                         @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+                                         @DateTimeFormat(pattern = "yyyy-MM-dd")
                                             @RequestParam LocalDate endDate) {
         return ResponseEntity.ok(refuelsSummaryService.getStatsForUser(startDate, endDate));
     }

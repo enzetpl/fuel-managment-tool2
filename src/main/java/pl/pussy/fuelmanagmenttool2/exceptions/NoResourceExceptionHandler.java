@@ -23,7 +23,12 @@ public class NoResourceExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NoResourceException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ResponseEntity<Object> handleException(NoResourceException ex, WebRequest request) {
-        return handleExceptionInternal(ex, ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    public ErrorResponse handleException(NoResourceException ex, WebRequest request) {
+        ErrorResponse.ErrorDetails error = new ErrorResponse.ErrorDetails();
+        error.setFieldName("value");
+        error.setMessage(ex.getMessage());
+        ErrorResponse response = new ErrorResponse();
+        response.setErrors(Collections.singletonList(error));
+        return response;
     }
 }
